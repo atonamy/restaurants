@@ -1,0 +1,21 @@
+{
+  "reviews": [
+    {
+      "id": "XjNn9I63evvUTonPtAB16g",
+      "url": "https://www.yelp.com/biz/bukit-cafe-singapore?hrid=XjNn9I63evvUTonPtAB16g&adjust_creative=Mh44OjuLfB62YAHwJR9WFA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=Mh44OjuLfB62YAHwJR9WFA",
+      "text": "5 stars! One star each for: 1. Service 2. Food 3. Ambiance 4. Price and 5. \"Will I come back?\"\n\nService was attentive and very friendly. And accommodating!...",
+      "rating": 5,
+      "time_created": "2016-02-23 08:49:34",
+      "user": {
+        "id": "Xs4wlPwWUCdQSqqFDG1b_A",
+        "profile_url": "https://www.yelp.com/user_details?userid=Xs4wlPwWUCdQSqqFDG1b_A",
+        "image_url": "https://s3-media4.fl.yelpcdn.com/photo/5tjOTApTnqwGn4X58jjfHA/o.jpg",
+        "name": "Jadyte J."
+      }
+    }
+  ],
+  "total": 1,
+  "possible_languages": [
+    "en"
+  ]
+}

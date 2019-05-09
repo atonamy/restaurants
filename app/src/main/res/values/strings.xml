@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Restaurants</string>
+    <string name="base_url">https://api.yelp.com/v3/businesses/</string>
+    <string name="auth_token">Bearer Fvk865yNZphZMiSyoyjNTvYw5DzkAVIhYB4o3fBQ5d-LndzmrVTbsbwzJFeXcWjt9MH01UIc4-fZVoQDTEn31DkEiqX_mNY-_Enebw7vuYzasJWS2ZRP_atHWrmAW3Yx</string>
+
+    <string name="category">Category</string>
+    <string name="open">Place Open for Customers (in working hours)</string>
+    <string name="hours">Working Hours</string>
+    <string name="empty">Looks like there no any restaurants near by to you. Please try again from different location.</string>
+    <string name="error">Oops!</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="info">Info</string>
+    <string name="reviews">Reviews</string>
+    <string name="no_reviews">There no reviews so far</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

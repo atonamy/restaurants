@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="viewModel"
+            type="transferwise.test.technical.restaurants.data.view_model.RestaurantViewModel" />
+    </data>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="@{viewModel.onClick}"
+    style="@style/CardViewStyle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="150">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="90">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/res_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="100"
+                android:adjustViewBounds="true"
+                fresco:actualImageScaleType="centerCrop"
+                fresco:placeholderImageScaleType="fitXY"
+                app:imageUrl="@{viewModel.model.imageUrl}"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{(viewModel.model.rating != null) ? String.format("%.1f", viewModel.model.rating) : ""}'
+                android:background="@drawable/text_bckgrnd"
+                android:textSize="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:layout_alignBottom="@+id/res_image"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/rate"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:layout_alignBottom="@+id/res_image"
+                android:id="@+id/rating_layout"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/rate"
+                >
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:rating="@{(viewModel.model.rating != null) ? (int)Math.round((double)viewModel.model.rating) : 0}"
+                    android:theme="@style/RatingBar"
+                    android:numStars="5"
+                    android:progressTint="@color/orange"
+                    android:id="@+id/rating_bar"
+                    />
+
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_share_white_24dp"
+                android:layout_toLeftOf="@+id/phone"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/share"
+                android:onClick="@{viewModel.onShare}"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_local_phone_white_24dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/phone"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{viewModel.onCall}"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:weightSum="100"
+            android:layout_weight="50"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="70"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.model.name}"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:id="@+id/place_name"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{viewModel.address}'
+                    android:textSize="11sp"
+                    android:id="@+id/place_add"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text='@{(!viewModel.model.distance.isEmpty()) ? (String.format("%.1f", Double.parseDouble(viewModel.model.distance) / 1000f) + " km") : ""}'
+                android:layout_weight="20"
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:gravity="right"
+                android:id="@+id/distance"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_near_me_green_24dp"
+                android:layout_weight="10"
+                android:layout_gravity="center"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+</layout>

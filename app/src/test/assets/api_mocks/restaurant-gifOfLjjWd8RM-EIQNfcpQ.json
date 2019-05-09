@@ -1,0 +1,95 @@
+{
+  "id": "gifOfLjjWd8RM-EIQNfcpQ",
+  "alias": "bukit-cafe-singapore",
+  "name": "Bukit Cafe",
+  "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/vmlTAVPrpJUf5N0-AF8T-Q/o.jpg",
+  "is_claimed": false,
+  "is_closed": false,
+  "url": "https://www.yelp.com/biz/bukit-cafe-singapore?adjust_creative=Mh44OjuLfB62YAHwJR9WFA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=Mh44OjuLfB62YAHwJR9WFA",
+  "phone": "+6562159439",
+  "display_phone": "+65 6215 9439",
+  "review_count": 1,
+  "categories": [
+    {
+      "alias": "asianfusion",
+      "title": "Asian Fusion"
+    }
+  ],
+  "rating": 5,
+  "location": {
+    "address1": "240 Sime Rd",
+    "address2": "The Singapore Island Country Club",
+    "address3": "",
+    "city": "Singapore",
+    "zip_code": "288303",
+    "country": "SG",
+    "state": "SG",
+    "display_address": [
+      "240 Sime Rd",
+      "The Singapore Island Country Club",
+      "Singapore 288303",
+      "Singapore"
+    ],
+    "cross_streets": ""
+  },
+  "coordinates": {
+    "latitude": 1.34193,
+    "longitude": 103.81111
+  },
+  "photos": [
+    "https://s3-media4.fl.yelpcdn.com/bphoto/vmlTAVPrpJUf5N0-AF8T-Q/o.jpg",
+    "https://s3-media3.fl.yelpcdn.com/bphoto/I4luFNwkMFI8ezWuNJdDVQ/o.jpg",
+    "https://s3-media1.fl.yelpcdn.com/bphoto/wApatf3OOKnNSGGATE-IbQ/o.jpg"
+  ],
+  "hours": [
+    {
+      "open": [
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2200",
+          "day": 0
+        },
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2200",
+          "day": 1
+        },
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2200",
+          "day": 2
+        },
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2200",
+          "day": 3
+        },
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2200",
+          "day": 4
+        },
+        {
+          "is_overnight": false,
+          "start": "0800",
+          "end": "2200",
+          "day": 5
+        },
+        {
+          "is_overnight": false,
+          "start": "0800",
+          "end": "2200",
+          "day": 6
+        }
+      ],
+      "hours_type": "REGULAR",
+      "is_open_now": true
+    }
+  ],
+  "transactions": []
+}

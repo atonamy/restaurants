@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="viewModel"
+            type="transferwise.test.technical.restaurants.data.view_model.RestaurantDetailsViewModel" />
+    </data>
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+
+            <com.synnapps.carouselview.CarouselView
+                android:id="@+id/restaurant_images"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:fillColor="#FFFFFFFF"
+                app:pageColor="#00000000"
+                app:radius="6dp"
+                app:slideInterval="3000"
+                app:strokeColor="#FF777777"
+                app:pageCount="@{viewModel.carouselPageCount}"
+                app:viewListener="@{viewModel.carouselViewListner}"
+                app:strokeWidth="1dp"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:background="@android:color/transparent"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="@{viewModel.onBack}"
+                    android:weightSum="100">
+
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="24dp"
+                        android:layout_weight="10"
+                        android:onClick="@{viewModel.onBack}"
+                        app:srcCompat="@drawable/ic_keyboard_arrow_left_white_24dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="12dp"
+                        android:layout_weight="25"
+                        android:text="Back"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:onClick="@{viewModel.onBack}"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.Toolbar>
+
+
+            <LinearLayout
+                android:id="@+id/container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="35dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_bckgrnd"
+                    android:gravity="center"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="1dp"
+                    android:text='@{(viewModel.model.rating != null) ? String.format("%.1f", viewModel.model.rating) : ""}'
+                    android:textColor="@color/white"
+                    android:textSize="12dp" />
+
+                <LinearLayout
+                    android:id="@+id/rating_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="35">
+
+                    <RatingBar
+                        android:id="@+id/rating_bar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:rating='@{(viewModel.model.rating != null) ? (int)Math.round((double)viewModel.model.rating) : 0}'
+                        android:theme="@style/RatingBar" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nest_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/tab_host_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <transferwise.test.technical.restaurants.ui.views.CalligraphyDefaultTabLayout
+                    android:id="@+id/tab_host"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:elevation="10dp"
+                    android:textAlignment="center"
+                    app:tabGravity="fill"
+                    app:tabIndicatorHeight="4dp"
+                    app:tabSelectedTextColor="@color/black"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                    fontPath="fonts/Ubuntu-B.ttf"
+                    >
+
+                </transferwise.test.technical.restaurants.ui.views.CalligraphyDefaultTabLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tab_host_layout"
+                android:nestedScrollingEnabled="true">
+
+            </android.support.v4.view.ViewPager>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card"
+        style="@style/CardViewStyleg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchorGravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="150">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="120"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.model.name}"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.address}"
+                    android:textSize="11sp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="20"
+                android:gravity="right"
+                android:text='@{(!viewModel.distance.isEmpty()) ? (String.format("%.1f", Double.parseDouble(viewModel.distance) / 1000f) + " km") : ""}'
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="10"
+                app:srcCompat="@drawable/ic_near_me_green_24dp" />
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</android.support.design.widget.CoordinatorLayout>
+</layout>

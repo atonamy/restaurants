@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="items_per_page">25</integer>
+    <item name="default_latitude" format="float" type="dimen">1.351616</item>
+    <item name="default_longitude" format="float" type="dimen">103.808053</item>
+</resources>
